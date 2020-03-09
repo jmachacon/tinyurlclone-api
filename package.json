@@ -1,0 +1,16 @@
+{
+  "name": "tinyurlclone-api",
+  "version": "1.0.0",
+  "description": "this is a tiny url clone made by jan machacon",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jan Machacon",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^19.1.1",
+    "mongoose": "^5.9.3",
+    "shortid": "^2.2.15"
+  }
+}
