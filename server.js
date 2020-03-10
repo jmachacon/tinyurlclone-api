@@ -7,7 +7,8 @@ const routes = require('./src/routes/tiny/tiny.routes');
 
 const init = async () => {
 
-    const dbUri = config.db.url.replace('<password>',config.db.password);
+    // const dbUri = config.db.url.replace('<password>',config.db.password);
+    const dbUri = process.env.MONGO_URL;
 
     mongoose.connect(dbUri,{ 
         useUnifiedTopology: true, 
@@ -18,15 +19,15 @@ const init = async () => {
     });
 
     mongoose.connection.on('connected', () => {
-        console.log(`app is connected to ${dbUri}`,dbUri);
+        console.log(`app is connected to ${dbUri}`);
     });
     mongoose.connection.on('error', err => {
         console.log('error while connecting to mongodb', err);
     });
 
     const server = Hapi.server({
-        port: 3000,
-        host: 'localhost'
+        port: process.env.PORT,
+        host: process.env.HOST
     });
 
     server.route(routes);

@@ -3,8 +3,9 @@ const shortid = require("shortid");
 
 module.exports = {
     generate(req, reply) {
+        
        if (!req.query.url) {
-           return reply({er: 'url is required field'}).code(400);
+           return reply.response({er: 'url is required field'}).code(400);
        }
         const hash = shortid.generate();
         const tiny = {
@@ -19,19 +20,19 @@ module.exports = {
                     return reply.response(doc);
                 }).catch(err2=> {
                     console.log(err2);
-                    return reply(err2).code(500);
+                    return reply.response(err2).code(500);
                 });
             }else{
                 return reply.response(result);
             }
         }).catch(err=> {
             console.log(err);
-            return reply(err).code(500);
+            return reply.response(err).code(500);
         });
    },
    findHash(req, reply) {
         if (!req.params.hash) {
-            return reply({err: 'hash is required param'}).code(400);
+            return reply.response({err: 'hash is required param'}).code(400);
         }
         return Tiny.findOne({ hash:req.params.hash, hostname: req.headers.host})
         .then(result => {
@@ -41,7 +42,7 @@ module.exports = {
             return reply.response({ 'message' : 'hash not found'});
         }).catch(err=> {
             console.log(err);
-            return reply(err).code(500);
+            return reply.response(err).code(500);
         });
     },
 };

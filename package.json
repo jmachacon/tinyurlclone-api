@@ -4,6 +4,8 @@
   "description": "this is a tiny url clone made by jan machacon",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
+    "debug": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jan Machacon",
@@ -11,6 +13,7 @@
   "dependencies": {
     "@hapi/hapi": "^19.1.1",
     "mongoose": "^5.9.3",
+    "nodemon": "^2.0.2",
     "shortid": "^2.2.15"
   }
 }

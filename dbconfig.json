@@ -1,6 +1,0 @@
-{
-    "db": {
-        "url" : "mongodb+srv://admin:<password>@node-tinyurlclone-f1apc.mongodb.net/tinyurlclone_db?retryWrites=true&w=majority",
-        "password": "Change1234"
-    }
-}
